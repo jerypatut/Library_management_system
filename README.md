@@ -83,7 +83,7 @@ Super Admin memiliki akses penuh untuk:
 - Menambah, membaca, mengedit, dan menghapus data buku.
 - Membaca, mengedit, dan menghapus pengguna.
 
-![Super Admin Screenshot](/screensut/LUPAPASSWORD.png)
+![Super Admin Screenshot](/screensut/ROLEUSERS.png)
 
 ---
 
