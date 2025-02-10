@@ -1,31 +1,31 @@
 # Library-Apps
 
-**library Apps**  
-Sistem informasi perpustakaan berbasis web ini menggunakan arsitektur **microservices** dengan teknologi **MERN Stack** (MongoDB, Express, ReactJS, Node.js).
+**library Apps**
+This web-based library information system uses **microservices** architecture with **MERN Stack** technology (MongoDB, Express, ReactJS, Node.js).
 
 ---
 
-## **Panduan Menjalankan Aplikasi**
+## **Application Running Guide**
 
-### **Software yang Harus Diinstal:**
+### **Software to Install:**
 
-1. **Node.js**  
-   Untuk menjalankan server backend dan frontend.
-2. **MongoDB (lokal atau Atlas)**  
-   Digunakan sebagai database untuk menyimpan data buku, pengguna, dan lainnya.
-3. **Browser**  
-   Untuk mengakses aplikasi (Google Chrome, Mozilla Firefox, atau lainnya).
+1. **Node.js**
+To run the backend and frontend servers.
+2. **MongoDB (local or Atlas)**
+Used as a database to store book data, users, and others.
+3. **Browser**
+To access the application (Google Chrome, Mozilla Firefox, or others).
 
 ---
 
-### **Konfigurasi File Environment (.env)**
+### **Environment File Configuration (.env)**
 
 #### **Backend (`book-app-backend`)**
 
-Buat file `.env` di folder `book-app-backend` dengan isi seperti berikut:
+Create a `.env` file in the `book-app-backend` folder with the following contents:
 
 ```
-MONGODB_LOKAL = mongodb://127.0.0.1:27017/perpus
+MONGODB_LOCAL = mongodb://127.0.0.1:27017/perpus
 MONGODB_ATLAS = mongodb+srv://example.url
 PORT = 5000
 HOST = smtp.gmail.com
@@ -37,7 +37,7 @@ SERVICE = gmail
 
 #### **Frontend (`book-app-frontend`)**
 
-Buat file `.env` di folder `book-app-frontend` dengan isi seperti berikut:
+Create a `.env` file in the `book-app-frontend` folder with the following contents: here:
 
 ```
 REACT_APP_BASE_URI = http://localhost:3000
@@ -46,124 +46,126 @@ REACT_APP_API_URI = http://localhost:5000
 
 ---
 
-### **Langkah Menjalankan Aplikasi**
+### **Steps to Run the Application**
 
-1. Buka terminal dan masuk ke masing-masing folder:
-   - `book-app-backend`
-   - `book-app-frontend`
-2. Jalankan perintah berikut untuk menginstal dependency:
-   ```
-   npm install
-   ```
-3. Jalankan server backend dan frontend menggunakan:
-   ```
-   npm start
-   ```
-
----
-
-## **Penjelasan Aplikasi**
-
-Aplikasi ini menggunakan arsitektur **microservices** yang memisahkan antara **backend** dan **frontend**. Backend menyediakan REST Server, sedangkan frontend bertindak sebagai REST Client untuk mengakses data. Teknologi yang digunakan:
-
-- **Backend**: Express.js dan MongoDB untuk REST Server dan database.
-- **Frontend**: ReactJS untuk membangun user interface dengan React Router DOM untuk navigasi antar halaman. Bootstrap versi 5 digunakan untuk desain antarmuka.
-- **Autentikasi**: Menggunakan JSON Web Token (JWT) untuk mengautentikasi pengguna dan mengelola akses.
+1. Open the terminal and go to each folder:
+- `book-app-backend`
+- `book-app-frontend`
+2. Run the following command to install the dependency:
+```
+npm install
+```
+3. Run the backend and frontend servers using:
+```
+npm start
+```
 
 ---
 
-## **Fitur dan Role Pengguna**
+## **Application Explanation**
 
-Aplikasi ini memiliki tiga jenis pengguna dengan akses berbeda:
+This application uses a **microservices** architecture that separates **backend** and **frontend**. The backend provides a REST Server, while the frontend acts as a REST Client to access data. Technologies used:
 
-### **1. Role SUPER ADMIN**
+- **Backend**: Express.js and MongoDB for REST Server and database.
+- **Frontend**: ReactJS to build the user interface with React Router DOM for navigation between pages. Bootstrap version 5 is used for interface design.
+- **Authentication**: Using JSON Web Token (JWT) to authenticate users and manage access.
 
-Super Admin memiliki akses penuh untuk:
+---
 
-- Menambah, membaca, mengedit, dan menghapus data buku.
-- Membaca, mengedit, dan menghapus pengguna.
+## **Features and User Roles**
+
+This application has three types of users with different access:
+
+### **1. SUPER ADMIN Role**
+
+Super Admin has full access to:
+
+- Add, read, edit, and delete book data.
+- Read, edit, and delete users.
 
 ![Super Admin Screenshot](/screensut/ROLEUSERS.png)
 
 ---
 
-### **2. Role ADMIN**
+### **2. ADMIN Role**
 
-Admin memiliki akses terbatas untuk:
+Admin has limited access to:
 
-- Menambah, membaca, mengedit, dan menghapus data buku.
+- Add, read, edit, and delete book data.
 
 ![Admin Screenshot](/screensut/roledua.png)
 
 ---
 
-### **3. Role USER/Pengguna**
+### **3. Role USER/User**
 
-User hanya memiliki akses untuk membaca data buku yang tersedia.
+User only has access to read available book data.
 
 ![User Screenshot](/screensut/role3.png)
 
 ---
 
-## **Fitur Utama**
+## **Main Features**
 
-### **4. Registrasi Akun**
+### **4. Account Registration**
 
-- Pengguna baru dapat mendaftar dengan memasukkan nama, email, password, dan role. Role otomatis diset sebagai "User".
-- Password akan di-hash menggunakan bcrypt sebelum disimpan di database.
+- New users can register by entering their name, email, password, and role. The role is automatically set as "User".
+- Passwords will be hashed using bcrypt before being stored in the database.
 
-![Registrasi Screenshot](/screensut/REGISTER.png)
+![Registration Screenshot](/screensut/REGISTER.png)
 
 ---
 
-### **5. Login Pengguna**
+### **5. User Login**
 
-- Pengguna dapat login menggunakan email dan password.
-- Jika validasi berhasil, token JWT akan dibuat dan disimpan di local storage bersama data pengguna.
+- Users can log in using their email and password.
+- If validation is successful, a JWT token will be created and stored in local storage along with user data.
 
 ![Login Screenshot](/screensut/login.png)
 
 ---
 
-### **6. Lupa Password**
+### **6. Forgot Password**
 
-- Pengguna dapat mengatur ulang password dengan memasukkan email yang valid.
-- Link reset password dikirimkan melalui email.
+- Users can reset their password by entering a valid email.
+- Password reset link is sent via email.
 
-![Lupa Password Screenshot](/screensut/LUPAPASSWORD.png)
-
----
-
-### **7. Beranda**
-
-- Berisi informasi umum tentang perpustakaan.
-
-![Beranda Screenshot](/screensut/home.js.png)
+![Forgot Password Screenshot](/screensut/LUPAPASSWORD.png)
 
 ---
 
-### **8. Daftar Buku**
+### **7. Home**
 
-- Menampilkan daftar buku yang tersedia, termasuk:
-  - Kode barcode
-  - Judul buku
-  - Penerbit
-  - Pengarang
-  - Tahun dan tempat terbit
+- Contains general information about the library.
 
-![Daftar Buku Screenshot](/screensut/home.js.png)
+![Home Screenshot](/screensut/home.js.png)
 
 ---
 
-### **9. Tentang Perpustakaan**
+### **8. Book List**
 
-- Berisi informasi detail tentang perpustakaan.
+- Displays a list of available books, including:
+- Barcode
+- Book title
+- Publisher
+- Author
+- Year and place of publication
 
-![Tentang Perpustakaan Screenshot](/screensut/tetangperpustakaan.png)
+![Book List Screenshot](/screensut/home.js.png)
+
+---
+
+### **9. About the Library**
+
+- Contains detailed information about the library.
+
+![About Library Screenshot](/screenshot/tetangperpustakaan.png)
 
 ---
 
 ### **10. Logout**
 
-- Token JWT dan data pengguna akan dihapus dari local storage.
-- Pengguna akan diarahkan kembali ke halaman login.
+- JWT token and user data will be deleted from local storage.
+- User will be redirected to login page.
+
+By @jerypatut
