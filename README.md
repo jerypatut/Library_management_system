@@ -159,7 +159,7 @@ Users only have access to read available book data.
 
 - Contains detailed information about the library.
 
-![About the Library Screenshot](/screensut/tetangperpustakaan.png)
+(/screensut/tetangperpustakaan.png)
 
 ---
 
